@@ -1,0 +1,9 @@
+.table thead th {
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+.table tbody tr td {
+    vertical-align: middle;
+}
