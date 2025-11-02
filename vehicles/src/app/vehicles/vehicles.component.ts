@@ -28,4 +28,14 @@ export class VehiclesComponent implements OnInit {
             }
         });
     }
+
+  public getNumberOfVehiclesPerBrand(): { marca: string, count: number }[] {
+    const counts: { [marca: string]: number } = this.vehicles.reduce((acc, vehicle) => {
+      const brand = vehicle.marca;
+      acc[brand] = (acc[brand] || 0) + 1;
+      return acc;
+    }, {} as { [marca: string]: number });
+
+    return Object.entries(counts).map(([marca, count]) => ({ marca, count }));
+  }
 }
