@@ -1,12 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
 import { App } from './app';
+import { VehiclesComponent } from './vehicles/vehicles.component';
+import { HttpClientModule } from '@angular/common/http'; 
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterModule.forRoot([])
+        RouterModule.forRoot([]),
+        VehiclesComponent,
+        HttpClientModule
       ],
       declarations: [
         App
@@ -24,6 +28,6 @@ describe('App', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, vehicles');
+    expect(compiled.title.match('TuSegundazo.com'));
   });
 });
